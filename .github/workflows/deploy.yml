@@ -32,5 +32,14 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+      - name: Wait for artifact
+        run: sleep 30
       - id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - name: Retry wait
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 60
+      - name: Retry deploy
+        if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v4
