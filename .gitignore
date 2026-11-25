@@ -1,0 +1,11 @@
+# 공개 저장소: 배포에 필요한 파일만 포함
+/*
+!/.gitignore
+!/.nojekyll
+!/README.md
+!/index.html
+!/assets/
+!/og-image.png
+!/favicon.*
+!/favicon-32.png
+!/apple-touch-icon.png
